@@ -1,0 +1,33 @@
+def nodeName = 'Dev(vlg-dev-rob02)'
+def gitlabCred = '03afd6a9-cc8c-40b3-afdc-d8376daa800b'
+def qRepo = 'git@msk-bss-git01.q.ru:q.Group/Q.git'
+def qBranch = '*/master'
+def dockerLocalTcp = 'tcp://0.0.0.0:2375'
+def docker_atbs_registry_url = 'http://unixrepo.q.ru:5200'
+def docker_atbs_registry_creds = 'atbs-registry-creds'
+def porm_token = '2deb47a57c2520bcb2ffb034d61576da'
+
+node(nodeName) {
+    cleanWs()
+    stage('Checkout from repo') {
+        checkout([$class: 'GitSCM', branches: [[name: qBranch]],
+                  doGenerateSubmoduleConfigurations: false,
+                  extensions: [],
+                  submoduleCfg: [],
+                  userRemoteConfigs: [[credentialsId: gitlabCred,
+                                       url: qRepo]]])
+    }
+    stage('Build and pull') {
+        docker.withServer(dockerLocalTcp) {
+            docker.withRegistry(docker_atbs_registry_url, docker_atbs_registry_creds) {
+                def q_image = docker.build('q', "-f Dockerfile .")
+                q_image.push()
+            }
+        }
+    }
+    stage('Restart prom') {
+        withCredentials([usernamePassword(credentialsId: 'd5d3cd45-be22-4dc5-b780-e763fb97f755', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+            sh "wget --auth-no-challenge --http-user=$USER --http-password=$PASS https://msk-bss-ansib03:8443/job/q/job/q_build/build?token=${porm_token}"
+        }
+    }
+}

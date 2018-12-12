@@ -1,0 +1,21 @@
+---
+algorithm:
+  name: add two number
+  data:
+    A: 4
+    B: 5
+  steps:
+    - step:
+        call: add
+        name: add
+        params:
+          a: A
+          b: B
+        result: xxx
+    - step:
+        call: add
+        name: add
+        if: xxx
+        params:
+          a: xxx
+          b: A

@@ -1,0 +1,32 @@
+---
+algorithm:
+- name: проверка на четность subs
+  alg_group: main
+  data:
+  - subs: SUBS_ID
+    timestmp: 2005-10-30 10:45
+    body:
+    - pack_id: 12
+    - city: Екатеринбург
+    - name: Alex
+    - instancePG: 1
+  step:
+    name: check name Town
+    call: sleep
+    params: 30
+  call: if data.city
+
+  return:
+      abv
+  except:
+       sleep: 2 def 10
+       retry: 2 def 0
+       exit: ignore|fail|skip def ignore
+       data:
+       - a: 1
+  step:
+    name:
+  	call: notify
+    if: data.a
+  commit: true
+

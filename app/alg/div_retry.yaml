@@ -1,0 +1,19 @@
+algorithm:
+  name: operation mod 5
+  alg_group: independent
+  data:
+    A: 4
+    B: 1
+  steps:
+  - step:
+      name: check div
+      data:
+        B: 0
+      call: div
+      params:
+        a: A
+        b: B
+      except:
+        retry: 1
+        exit: fail
+      result: A

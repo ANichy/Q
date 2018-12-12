@@ -1,0 +1,18 @@
+---
+algorithm:
+  name: add comment
+  alg_group: main
+  validate:
+    comment: str
+  data:
+    comment: someone comment
+  steps:
+  - step:
+      name: add comment
+      call:  add_string
+      params:
+        comment: comment
+      except:
+        retry: 2
+        exit: fail
+      return: comment

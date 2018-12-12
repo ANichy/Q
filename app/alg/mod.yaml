@@ -1,0 +1,21 @@
+---
+algorithm:
+  name: operation mod
+  alg_group: independent
+  validate:
+    subs_id: int
+  data:
+    subs_id: 1
+
+  steps:
+  - step:
+      name: check mod
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 2
+      except:
+        retry: 1
+        exit: fail
+      result: 2

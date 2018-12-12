@@ -1,0 +1,28 @@
+---
+algorithm:
+  name: migration subs
+  alg_group: main
+  validate:
+    city: str
+    timezone: str
+  steps:
+
+  - step:
+  		data:
+      	def_city: Москва
+      name: migrate subs
+      call:  change town to Moscow
+      if: city != def_city
+      except:
+        retry: 2
+        exit: fail
+      return: chk
+
+  - step:
+      name: migrate timezone
+      call: change teimezone to Moscow
+      params: timezone
+      except:
+        retry: 2
+        exit: fail
+      if: chk

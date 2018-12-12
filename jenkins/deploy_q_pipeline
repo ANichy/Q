@@ -1,0 +1,17 @@
+def nodeName = 'Q-agent'
+def gitlabCred = '34387bc3-8013-43e0-9641-225dba488f17'
+def qRepo = 'git@msk-bss-git01.q.ru:q.Group/Q.git'
+def qBranch = '*/master'
+def dockerLocalTcp = 'tcp://0.0.0.0:2375'
+
+node(nodeName) {
+    cleanWs()
+    checkout([$class: 'GitSCM', branches: [[name: qBranch]],
+              doGenerateSubmoduleConfigurations: false,
+              extensions: [],
+              submoduleCfg: [],
+              userRemoteConfigs: [[credentialsId: gitlabCred,
+                                   url: qRepo]]])
+    sh 'docker pull unixrepo.q.ru:5200/q'
+    sh 'docker-compose up -d --build'
+}

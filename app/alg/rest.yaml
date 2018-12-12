@@ -1,0 +1,55 @@
+---
+algorithm:
+  name: sending REST to change name subscriber
+  alg_group: independent
+  validate:
+    url: str
+    type: str
+    body: dict
+    def_code: int
+  data:
+    def_body: [1]
+    def_response: 200
+    def_url: default_mock
+  steps:
+  - step:
+      name: sending rest request GET
+      call: rest
+      params:
+        url: def_url
+        body: def_body
+        def_code: def_response
+      const:
+        type: GET
+      except:
+        retry: 2
+        exit: skip
+  - step:
+      name: sending rest request PUT
+      call: rest
+      params:
+        url: def_url
+        body: def_body
+        def_code: def_response
+      const:
+        type: PUT
+      except:
+        retry: 2
+        exit: skip
+  - step:
+      name: sending rest request DEL
+      call: rest
+      params:
+        url: def_url
+        body: def_body
+        def_code: def_response
+      const:
+        type: DEL
+      except:
+        retry: 2
+        exit: skip
+  - step:
+      name: to rabbit
+      call: rabbit
+      const:
+        msg: hello all people

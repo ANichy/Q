@@ -1,0 +1,395 @@
+---
+algorithm:
+  name: operation mod 5
+  alg_group: independent
+  validate:
+    subs_id: int
+  data:
+    subs_id: 1
+
+  steps:
+  - step:
+      name: check mod 3
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 2
+      except:
+        retry: 1
+        exit: skip
+      return: 2
+  - step:
+      name: check mod 3
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 3
+      except:
+        retry: 1
+        exit: skip
+      return: 3
+  - step:
+      name: check mod 4
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 4
+      except:
+        retry: 1
+        exit: skip
+      return: 4
+  - step:
+      name: check mod 5
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 5
+      except:
+        retry: 1
+        exit: skip
+      return: 5
+  - step:
+      name: check mod 6
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 6
+      except:
+        retry: 1
+        exit: skip
+      return: 6
+  - step:
+      name: check mod 7
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 7
+      except:
+        retry: 1
+        exit: skip
+      return: 7
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 9
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 9
+      except:
+        retry: 1
+        exit: skip
+      return: 9
+  - step:
+      name: check mod 10
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 10
+      except:
+        retry: 1
+        exit: skip
+      return: 10
+  - step:
+      name: check mod 11
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 11
+      except:
+        retry: 1
+        exit: skip
+      return: 11
+  - step:
+      name: check mod 12
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 12
+      except:
+        retry: 1
+        exit: skip
+      return: 12
+  - step:
+      name: check mod 13
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 13
+      except:
+        retry: 1
+        exit: skip
+      return: 13
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
+  - step:
+      name: check mod 8
+      call: mod
+      params:
+        a: subs_id
+      const:
+        b: 8
+      except:
+        retry: 1
+        exit: skip
+      return: 8
