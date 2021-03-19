@@ -11,7 +11,7 @@ django-debug-toolbar==1.10.1
 django-filter==2.0.0
 django-js-asset==1.1.0
 django-mailbox==4.7.1
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 filetype==1.0.1
 idna==2.7
 Markdown==3.0.1
